@@ -10,7 +10,7 @@ require 'faker'
 
 # EVENTS
 # user_id*
-# type*
+# activity_type*
 # capacity
 # spots_filled
 # description
@@ -38,7 +38,14 @@ require 'faker'
   randomdim = [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100].sample
   photo = Faker::LoremPixel.image("#{randomdim}x#{randomdim}", false, 'people')
 
-  description = (Faker::GreekPhilosophers.quote, Faker::Quote.famous_last_words, Faker::Quotes::Shakespeare.hamlet_quote, Faker::Quotes::Shakespeare.as_you_like_it_quote, Faker::Quotes::Shakespeare.king_richard_iii_quote, Faker::Quotes::Shakespeare.romeo_and_juliet_quote).sample
+  fake_des1 = Faker::GreekPhilosophers.quote
+  fake_des2 = Faker::Quote.famous_last_words
+  fake_des3 = Faker::Quotes::Shakespeare.hamlet_quote
+  fake_des4 = Faker::Quotes::Shakespeare.as_you_like_it_quote
+  fake_des5 = Faker::Quotes::Shakespeare.king_richard_iii_quote
+  fake_des6 = Faker::Quotes::Shakespeare.romeo_and_juliet_quote
+
+  description = [fake_des1, fake_des2, fake_des3, fake_des4, fake_des5, fake_des6].sample
 
   new_user = User.create(name: name, photo: photo, description: description)
 end
@@ -63,7 +70,7 @@ end
   # longitude =
   # photo =
 
-  new_event = Event.create(user: User.all.sample, type: random_type, capacity: random_capacity, description: description, start_time: random_time, end_time: random_time + [60*60,90*60,120*60].sample, location: rand_location)
+  new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: random_time, end_time: random_time + [60*60,90*60,120*60].sample, location: rand_location)
 end
 
 
