@@ -49,7 +49,7 @@ require 'faker'
 
   new_user = User.create(name: name, photo: photo, description: description)
 end
-
+p "300 users created"
 
 # make 50 EVENTS in Shanghai
 50.times do
@@ -72,10 +72,13 @@ end
 
   new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: random_time, end_time: random_time + [60*60,90*60,120*60].sample, location: rand_location)
 end
-
+  p "50 events created"
 
 # make 5-20 bookings per event
 Event.all.each do |event|
     # below references using instance of User instead of user_id
-  new_booking = Booking.create(user: User.all.sample, event: Event.all.sample)
+  rand(5..20).times do
+    new_booking = Booking.create(user: User.all.sample, event: Event.all.sample)
+  end
 end
+p "5-20 bookings per event created"
