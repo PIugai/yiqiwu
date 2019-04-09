@@ -1,4 +1,5 @@
 class Api::V1::BookingsController < Api::V1::BaseController
+  skip_before_action :verify_authenticity_token
 
   def index
     # this is probably wrong - check how to use user_id
@@ -8,26 +9,18 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
-      render :index, status: :created
-    else
-      render_error
-    end
+    @booking.save
   end
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
-      render :show
-    else
-      render_error
-    end
+    @booking.update(booking_params)
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:id, :user_id, :event_id, :review)
+    params.permit(:id, :user_id, :event_id, :review)
   end
 
   def render_error

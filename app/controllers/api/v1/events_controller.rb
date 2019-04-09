@@ -1,4 +1,5 @@
 class Api::V1::EventsController < Api::V1::BaseController
+  skip_before_action :verify_authenticity_token
   before_action :set_event, only: [:show]
 
   def index
@@ -6,16 +7,12 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
   end
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      render :show, status: :created
-    else
-      render_error
-    end
+    @event.save
   end
 
   private
@@ -25,7 +22,7 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def event_params
-    params.require(:event).permit(:user_id, :type, :capacity, :spots_filled, :description, :start_time, :end_time, :location, :latitude, :longitude, :photo)
+    params.permit(:user_id, :activity_type, :capacity, :spots_filled, :description, :start_time, :end_time, :location, :latitude, :longitude, :photo)
   end
 
   def render_error
