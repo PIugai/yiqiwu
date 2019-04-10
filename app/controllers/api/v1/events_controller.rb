@@ -22,7 +22,7 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def event_params
-    params.permit(:user_id, :activity_type, :capacity, :spots_filled, :description, :start_time, :end_time, :location, :latitude, :longitude, :photo)
+    params.permit(:user_id, :activity_type, :capacity, :spots_filled, :description, :start_time, :end_time, :location, :latitude, :longitude, :photo, :iconPath)
   end
 
   def render_error
