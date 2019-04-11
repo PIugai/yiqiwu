@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   validates :location, presence: true
 
   def find_path()
-    activity = { "Kites" => "/image/kite.png", "Dance" => "/image/dance.png", "Spinning Top" => "/image/tops.png", "Taichi" => "/image/taichi.png", "Wushu" => "/image/wushu.png", "Sword Dance" => "/image/sword_dance", "Chinese Chess" => "/image/chinese_chess", "Water Calligraphy" => "/image/water_calligraphy" }
+    activity = { "Kites" => "/image/kite.png", "Dance" => "/image/dance2.png", "Spinning Top" => "/image/tops.png", "Taichi" => "/image/taichi.png", "Wushu" => "/image/wushu.png", "Sword Dance" => "/image/sword_dance.png", "Chinese Chess" => "/image/chinese_chess.png", "Water Calligraphy" => "/image/water_calligraphy.png" }
     self.update_column(:iconPath, activity[self.activity_type])
   end
 
