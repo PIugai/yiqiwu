@@ -1,33 +1,5 @@
 require 'faker'
 
-# USERS
-# name
-# photo
-# wechat_id
-# description
-# latitude
-# longitude
-
-# EVENTS
-# user_id*
-# activity_type*
-# capacity
-# spots_filled
-# description
-# start_time*
-# end_time*
-# location*
-# latitude
-# longitude
-# photo
-
-# BOOKINGS
-# user_id*
-# event_id*
-# attendance
-# review
-
-
 # make 300 USERS
 300.times do
   first_name = Faker::Name.first_name
@@ -48,27 +20,20 @@ require 'faker'
 
   new_user = User.create(name: name, photo: photo, description: description)
 end
-p "300 users created"
+p "#{User.all.count} users created"
 
 
 # make 50 EVENTS in Shanghai
 50.times do
-  random_type = ["Taichi", "Dance", "Wushu", "Sword Dance", "Chinese Chess", "Water Calligraphy", "Kites", "Spinning Top"].sample
+  # random_type = ["Fan Dance", "Sword Dance", "Peacock Dance", "Folk Dance", "Ballet", "Exercise Dance"].sample
+  random_type = ["Kites", "Dance", "Spinning Top", "Taichi", "Wushu", "Sword Dance", "Chinese Chess", "Water Calligrahy"].sample
+
   random_capacity = [5,8,10,15,20,25,30,35,40,45,50].sample
 
   description = "#{random_type} is #{Faker::Marketing.buzzwords}. #{Faker::GreekPhilosophers.quote}"
 
-  year = Time.now.year
-  month = Time.now.month
-  if Time.now.day < 22
-    day_within_week = Time.now.day + rand(1..7)
-  else
-    day_within_week = Time.now.day + 1
-  end
-  start_hour = [6, 7, 8, 18, 19, 20].sample
-  start_min = [0, 15, 30, 45].sample
-
-  random_time = Time.new(year, month, day_within_week, start_hour, start_min)
+  start_time = Faker::Time.forward(60, :evening)
+  start_time = start_time - start_time.min*60 - start_time.sec
 
   park_lat_long_array = [[31.224013, 121.441312, "Jingan Park"],
   [31.223481, 121.441167, "Jingan Park"],
@@ -137,13 +102,13 @@ p "300 users created"
   longitude = latlong[1]
   # photo =
 
-  new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: random_time, end_time: random_time + [60*60,90*60,120*60].sample, location: latlong[2], latitude: latitude, longitude: longitude)
+  new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: start_time, end_time: start_time + [60*60,90*60,120*60].sample, location: latlong[2], latitude: latitude, longitude: longitude)
 end
-  p "50 events created"
+  p "#{Event.all.count} events created"
 
 # make 5-20 bookings per event
 Event.all.each do |event|
-  rand(5..20).times do
+  rand(0..event.capacity).times do
     attendance = [true, false].sample
     new_booking = Booking.create(user: User.all.sample, event: Event.all.sample, attendance: attendance)
     descriptor = %w(liked loved enjoyed).sample
@@ -151,7 +116,7 @@ Event.all.each do |event|
     new_booking.save
   end
 end
-p "5-20 bookings per event created (total #{Booking.count} bookings)"
+p "#{Booking.all.count} bookings per event created (total #{Booking.count} bookings)"
 
 # update spots filled
 Event.all.each do |event|
