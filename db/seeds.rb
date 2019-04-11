@@ -1,7 +1,7 @@
 require 'faker'
 
 p "cleaning database"
-User.destroy_all
+Booking.destroy_all
 Event.destroy_all
 User.destroy_all
 
