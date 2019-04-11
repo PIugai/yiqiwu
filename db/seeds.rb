@@ -111,17 +111,17 @@ p "#{User.all.count} users created"
 end
   p "#{Event.all.count} events created"
 
-# make 5-20 bookings per event
+# make bookings for each event
 Event.all.each do |event|
   rand(0..event.capacity).times do
     attendance = [true, false].sample
-    new_booking = Booking.create(user: User.all.sample, event: Event.all.sample, attendance: attendance)
+    new_booking = Booking.create(user: User.all.sample, event: event, attendance: attendance)
     descriptor = %w(liked loved enjoyed).sample
     new_booking.review = "I #{descriptor} this #{new_booking.event.activity_type} event very much"
     new_booking.save
   end
 end
-p "#{Booking.all.count} bookings per event created (total #{Booking.count} bookings)"
+p "#{Booking.all.count} bookings created"
 
 # update spots filled
 Event.all.each do |event|
