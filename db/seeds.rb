@@ -31,7 +31,7 @@ p "#{User.all.count} users created"
 # make 50 EVENTS in Shanghai
 50.times do
   # random_type = ["Fan Dance", "Sword Dance", "Peacock Dance", "Folk Dance", "Ballet", "Exercise Dance"].sample
-  random_type = ["Kites", "Dance", "Spinning Top", "Taichi", "Wushu", "Sword Dance", "Chinese Chess", "Water Calligrahy"].sample
+  random_type = ["Kites", "Dance", "Spinning Top", "Taichi", "Wushu", "Sword Dance", "Chinese Chess", "Water Calligraphy"].sample
 
   random_capacity = [5,8,10,15,20,25,30,35,40,45,50].sample
 
