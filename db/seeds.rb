@@ -1,5 +1,10 @@
 require 'faker'
 
+p "cleaning database"
+User.destroy_all
+Event.destroy_all
+User.destroy_all
+
 # make 300 USERS
 300.times do
   first_name = Faker::Name.first_name
