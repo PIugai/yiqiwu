@@ -1,6 +1,6 @@
 class Api::V1::EventsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :destroy]
 
   def index
     @events = Event.all
@@ -13,6 +13,11 @@ class Api::V1::EventsController < Api::V1::BaseController
   def create
     @event = Event.new(event_params)
     @event.save
+  end
+
+  def destroy
+    @event.destroy
+    head :no_content
   end
 
   private
