@@ -21,8 +21,8 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   def destroy
     @booking.destroy
-    head :no_content
     @event.update(spots_filled: @event.spots_filled - 1)
+    head :no_content
   end
 
   private

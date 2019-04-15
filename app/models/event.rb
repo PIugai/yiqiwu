@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   after_save :find_path
 
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, :dependent => :destroy
   # validates :user_id, presence: true
   validates :activity_type, presence: true
   validates :start_time, presence: true
