@@ -17,6 +17,11 @@ class Api::V1::BookingsController < Api::V1::BaseController
     @booking.update(booking_params)
   end
 
+  def destroy
+    @event.destroy
+    head :no_content
+  end
+
   private
 
   def booking_params
