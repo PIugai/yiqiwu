@@ -15,6 +15,11 @@ class Api::V1::EventsController < Api::V1::BaseController
     @event.save
   end
 
+  def destroy
+    @event.destroy
+    head :no_content
+  end
+
   private
 
   def set_event
