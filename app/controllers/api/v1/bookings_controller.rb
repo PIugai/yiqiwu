@@ -1,6 +1,6 @@
 class Api::V1::BookingsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
-  before_action :set_event, only: [:update, :destroy]
+  before_action :set_booking, only: [:update, :destroy]
 
   def index
     # this is probably wrong - check how to use user_id
