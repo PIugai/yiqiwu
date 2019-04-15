@@ -11,6 +11,8 @@ class Api::V1::BookingsController < Api::V1::BaseController
   def create
     @booking = Booking.new(booking_params)
     @booking.save
+    @event = Event.find(params[:event_id])
+    @event.update(spots_filled: @event.spots_filled + 1)
   end
 
   def update
