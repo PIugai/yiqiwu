@@ -39,14 +39,14 @@ p "#{User.all.count} users created"
 
   start_time = Faker::Time.forward(60, :evening)
   start_time = start_time - start_time.min*60 - start_time.sec
-  
-  park_lat_long_array = [[31.22364, 121.44150, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/c046e3f39333655d4730/jing6.jpg"],
-  [31.22388, 121.44310, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/1b4d15334a0c7bb2b868/jing1.jpg"],
-  [31.22346, 121.44194, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/e9173c1ed6ecd0a3946c/jing2.jpg"],
-  [31.22400, 121.44119, "Jingan Park", "http://lc-odcccsle.cn-n1.lcfile.com/d3ecf38098ac5d10b75f/jing5.jpg"],
-  [31.22433, 121.44172, "Jingan Park", "http://lc-odcccsle.cn-n1.lcfile.com/d3ecf38098ac5d10b75f/jing5.jpg"],
-  [31.22453, 121.44235, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/84a06e45fb6b09ea1989/jing3.jpg"],
-  [31.22388, 121.44214, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/ce4b9e9c30044869fee4/jing4.jpg"],
+
+  park_lat_long_array = [[31.221812022739826, 121.44771237865449, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/c046e3f39333655d4730/jing6.jpg"],
+  [31.221628523633207, 121.446725325737, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/1b4d15334a0c7bb2b868/jing1.jpg"],
+  [31.221623936151026, 121.44597967163087, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/e9173c1ed6ecd0a3946c/jing2.jpg"],
+  [31.222142320234745, 121.44583483234406, "Jingan Park", "http://lc-odcccsle.cn-n1.lcfile.com/d3ecf38098ac5d10b75f/jing5.jpg"],
+  [31.222325818344327, 121.4462747146225, "Jingan Park", "http://lc-odcccsle.cn-n1.lcfile.com/d3ecf38098ac5d10b75f/jing5.jpg"],
+  [31.222243244239227, 121.44675214782715, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/84a06e45fb6b09ea1989/jing3.jpg"],
+  [31.222353343030107, 121.44726713195801, "Jingan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/ce4b9e9c30044869fee4/jing4.jpg"],
   [31.224505, 121.414189, "Zhongshan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/2b06abe54ac0922fb8c8/zh5.jpg"],
   [31.224670, 121.411722, "Zhongshan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/2d91a7b7b04b0b8aaea9/zh1.jpg"],
   [31.223331, 121.411551, "Zhongshan Park", "http://lc-OdCCcsLE.cn-n1.lcfile.com/45985621e3a4748690ee/zh6.jpg"],
