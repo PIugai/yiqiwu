@@ -40,14 +40,14 @@ p "#{User.all.count} users created"
   start_time = Faker::Time.forward(60, :evening)
   start_time = start_time - start_time.min*60 - start_time.sec
 
-  park_lat_long_array = [[31.224013, 121.441312, "Jingan Park"],
-  [31.223481, 121.441167, "Jingan Park"],
-  [31.223357, 121.441709, "Jingan Park"],
-  [31.223692, 121.442824, "Jingan Park"],
-  [31.224086, 121.441821, "Jingan Park"],
-  [31.224265, 121.442465, "Jingan Park"],
-  [31.223834, 121.443038, "Jingan Park"],
-  [31.223719, 121.442068, "Jingan Park"],
+  park_lat_long_array = [[31.22364, 121.44150, "Jingan Park"],
+  [31.22388, 121.44310, "Jingan Park"],
+  [31.22346, 121.44194, "Jingan Park"],
+  [31.22400, 121.44119, "Jingan Park"],
+  [31.22433, 121.44172, "Jingan Park"],
+  [31.22453, 121.44235, "Jingan Park"],
+  [31.22388, 121.44214, "Jingan Park"],
+  [31.22397, 121.44193, "Jingan Park"],
   [31.224505, 121.414189, "Zhongshan Park"],
   [31.224670, 121.411722, "Zhongshan Park"],
   [31.223331, 121.411551, "Zhongshan Park"],
