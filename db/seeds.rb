@@ -87,7 +87,7 @@ p "#{User.all.count} users created"
   longitude = latlong[1]
   photo = latlong[3]
 
-  new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: start_time, end_time: start_time + [60*60,90*60,120*60].sample, location: latlong[2], latitude: latitude, longitude: longitude)
+  new_event = Event.create(user: User.all.sample, activity_type: random_type, capacity: random_capacity, description: description, start_time: start_time, end_time: start_time + [60*60,90*60,120*60].sample, location: latlong[2], latitude: latitude, longitude: longitude, photo: photo)
 end
   p "#{Event.all.count} events created"
 
