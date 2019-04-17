@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_044049) do
+ActiveRecord::Schema.define(version: 2019_04_17_025500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 2019_04_11_044049) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "iconPath"
+    t.string "iconPathYellow"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.string "iconPathRed"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
